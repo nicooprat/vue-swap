@@ -9,7 +9,7 @@ export default {
     },
   },
   render (h, ctx) {
-    const wrap = window && window.CSS && window.CSS.supports('display: grid') ? 'transition' : 'div'
+    const wrap = typeof window !== 'undefined' && window.CSS && window.CSS.supports('display: grid') ? 'transition' : 'div'
     return h('div', { attrs: { 'data-swap': true } }, [
       h(wrap, { props: { name: `swap-${ctx.props.direction}` } }, ctx.slots().default),
     ])
