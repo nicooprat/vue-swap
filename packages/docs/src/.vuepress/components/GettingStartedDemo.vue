@@ -1,49 +1,95 @@
 <template>
-  <Columns :columns="3" class="parent">
-    <div
-      v-for="item in 12"
-      :key="item" v-text="item"
-      class="child"
-      :class="item % 2 === 0 ? 'odd' : 'even'"
-      :style="`height: ${1 + Math.random() * 2}em`"
-    />
-  </Columns>
+  <section>
+    <button @click="step--">👈</button>
+    <Swap :direction="direction">
+      <article :key="step" v-text="step" :style="`background-color: ${getColor}; height: ${2 + Math.random() * 10}em;`" />
+    </Swap>
+    <button @click="step++">👉</button>
+  </section>
 </template>
 
 <script>
-import Columns from '../../../../../packages/vue-columns/src/Columns'
+import Swap from '../../../../../packages/vue-swap/src/Swap'
+
+// https://tailwindcss.com/docs/customizing-colors/#default-color-palette
+const colors = ['#ECC94B', '#48BB78', '#38B2AC', '#4299E1', '#667EEA', '#9F7AEA', '#ED64A6']
 
 export default {
   components: {
-    Columns,
+    Swap,
   },
+  data() {
+    return {
+      step: 1,
+      direction: 'right',
+    }
+  },
+  watch: {
+    step(newStep, oldStep) {
+      this.direction = newStep > oldStep ? 'left' : 'right'
+    }
+  },
+  computed: {
+    getColor() {
+      return colors[Math.abs(this.step % colors.length)]
+    }
+  }
 }
 </script>
 
 <style scoped>
-.parent {
-  margin-left: -.25em;
-  margin-right: -.25em;
-  font-size: 2em;
+section {
+  position: relative;
+  margin-bottom: 5vh;
+  font-size: calc(1.5rem + 1.5vw);
+  height: 12em;
 }
 
-.child {
-  border: .25em solid white;
+article {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: bold;
   text-align: center;
-  padding: 1em;
-  border-radius: .5em;
+  font-family: monospace;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  border-radius: 0.5rem;
 }
 
-.child.odd {
-  background-color: #293849;
+button {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 5%;
+  position: absolute;
+  top: 0;
+  font-size: 1.5em;
+  z-index: 1;
+  padding: 0.25em;
+  line-height: 1;
+  border-radius: 999px;
+  text-indent: .15em;
 }
 
-.child.even {
-  background-color: #32a56d;
+button:hover,
+button:focus,
+button:active {
+  outline: none;
+  cursor: pointer;
+  background-color: #202329;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+button:first-child {
+  left: 0;
+}
+
+button:last-child {
+  right: 0;
 }
 </style>
