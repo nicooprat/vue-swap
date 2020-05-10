@@ -2,7 +2,7 @@
   <section>
     <button @click="step--">👈</button>
     <Swap :direction="direction">
-      <article :key="step" v-text="step" :style="`background-color: ${getColor}; height: ${2 + Math.random() * 10}em;`" />
+      <article :key="step" v-text="step" :style="`background-color: ${getColor}; height: ${5 + Math.random() * 6}em;`" />
     </Swap>
     <button @click="step++">👉</button>
   </section>
@@ -42,10 +42,6 @@ section {
   position: relative;
   margin-bottom: 5vh;
   font-size: calc(1.5rem + 1.5vw);
-  height: 12em;
-  border-radius: 0.15em;
-  overflow: hidden;
-  background-color: #F7FAFC;
 }
 
 article {
@@ -58,7 +54,6 @@ article {
   font-weight: bold;
   color: white;
   border-radius: 0.15em;
-  margin: 1rem;
 }
 
 button {
