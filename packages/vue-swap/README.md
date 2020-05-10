@@ -2,7 +2,7 @@
 
 # vue-swap
 
-Vue minimalist component to horizontally swap between items
+Vue functional component to horizontally swap between items
 
 [Demo & docs](https://vue-swap.netlify.app/)
 

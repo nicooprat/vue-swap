@@ -1,13 +1,6 @@
-<template>
-  <div data-swap>
-    <component :is="supportsCssGrid ? 'transition' : 'div'" :name="`swap-${direction}`">
-      <slot />
-    </component>
-  </div>
-</template>
-
 <script>
 export default {
+  functional: true,
   props: {
     direction: {
       type: String,
@@ -15,15 +8,16 @@ export default {
       validator: (dir) => ['left', 'right'].includes(dir),
     },
   },
-  computed: {
-    supportsCssGrid() {
-      return window.CSS && window.CSS.supports('display: grid');
-    },
-  },
-};
+  render (h, ctx) {
+    const wrap = window && window.CSS && window.CSS.supports('display: grid') ? 'transition' : 'div'
+    return h('div', { attrs: { 'data-swap': true } }, [
+      h(wrap, { props: { name: `swap-${ctx.props.direction}`} }, ctx.slots().default)
+    ])
+  }
+}
 </script>
 
-<style scoped>
+<style>
 @supports (display: grid) {
   [data-swap] {
     display: grid;
@@ -34,11 +28,11 @@ export default {
     grid-area: content;
   }
 
-  .swap-right-enter-active {
+  [data-swap] > .swap-right-enter-active {
     animation: swap-right-in 500ms;
   }
 
-  .swap-right-leave-active {
+  [data-swap] > .swap-right-leave-active {
     animation: swap-right-out 500ms;
   }
 
@@ -64,11 +58,11 @@ export default {
     }
   }
 
-  .swap-left-enter-active {
+  [data-swap] > .swap-left-enter-active {
     animation: swap-left-in 500ms;
   }
 
-  .swap-left-leave-active {
+  [data-swap] > .swap-left-leave-active {
     animation: swap-left-out 500ms;
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "vue-swap",
-  "description": "Vue minimalist component to horizontally swap between items",
+  "description": "Vue functional component to horizontally swap between items",
   "version": "0.0.1",
   "author": {
     "name": "Nico Prat",

@@ -2,7 +2,7 @@
 home: true
 heroImage: /vue-swap.svg
 heroText: vue-swap
-tagline: Vue minimalist component to horizontally swap between items
+tagline: Vue functional component to horizontally swap between items
 actionText: Get Started →
 actionLink: /guide/
 features:

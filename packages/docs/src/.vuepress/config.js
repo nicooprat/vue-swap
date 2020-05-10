@@ -17,7 +17,7 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#ffffff' }],
   ],
   title: 'vue-swap',
-  description: 'Vue minimalist component to horizontally swap between items',
+  description: 'Vue functional component to horizontally swap between items',
   themeConfig: {
     search: false,
     logo: '/vue-swap.svg',
@@ -27,7 +27,7 @@ module.exports = {
       '/': {
         lang: 'en-US',
         title: 'vue-swap',
-        description: 'Vue minimalist component to horizontally swap between items',
+        description: 'Vue functional component to horizontally swap between items',
       },
     },
     editLinks: true,
