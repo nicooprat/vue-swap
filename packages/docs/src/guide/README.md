@@ -2,29 +2,29 @@
 
 ## Installation
 
-Install the `vue-columns` package:
+Install the `vue-swap` package:
 
 ```sh
-npm i vue-columns
+npm i vue-swap
 ```
 
 Or
 
 ```sh
-yarn add vue-columns
+yarn add vue-swap
 ```
 
 ## Quick start
 
-Import the `Columns` component from `vue-columns`:
+Import the `Swap` component from `vue-swap`:
 
 ```vue{2,6}
 <script>
-import { Columns } from 'vue-columns'
+import { Swap } from 'vue-swap'
 
 export default {
   components: {
-    Columns,
+    Swap,
   },
 }
 </script>
