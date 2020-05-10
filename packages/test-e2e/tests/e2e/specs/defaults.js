@@ -1,29 +1,35 @@
 const { $, _ } = Cypress
 
-describe('defaults behavior with 3 columns', () => {
+describe('default behavior', () => {
   beforeEach(() => {
     cy.visit('/defaults')
   })
 
-  it('creates right amount of columns', () => {
-    cy.get('.parent').should('exist').should('have.length', 1)
-    cy.get('.parent > *').should('exist').should('have.length', 3)
-  })
+  it('swaps to left or right', () => {
+    // Start state with only article 1
+    cy.get('article').should('have.length', 1)
+    cy.get('article').should('have.text', '1')
 
-  it('dispatches children evenly', () => {
-    cy.get('.child').should('have.length', 12)
-    const texts = ["1", "4", "7", "10", "2", "5", "8", "11", "3", "6", "9", "12"]
-    cy.get('.child').then(($children) => {
-      _.each($children.get(), (child, i) => {
-        expect($(child).text()).to.eq(texts[i])
-      })
-    })
-  })
+    // Go left
+    cy.get('button:first-child').click()
 
-  it('has equal columns widths', () => {
-    cy.get('.parent > *').then(($columns) => {
-      const widths = _.map($columns.get(), (column, i) => $(column).width())
-      expect(_.uniq(widths).length).to.eq(1)
-    })
+    // There should be two articles while animating
+    cy.get('article').should('have.length', 2)
+    cy.clock().tick(500);
+
+    // There should be only article 0
+    cy.get('article').should('have.length', 1)
+    cy.get('article').should('have.text', '0')
+
+    // Go right
+    cy.get('button:last-child').click()
+
+    // There should be two articles while animating
+    cy.get('article').should('have.length', 2)
+    cy.clock().tick(500);
+
+    // There should be only article 1 again
+    cy.get('article').should('have.length', 1)
+    cy.get('article').should('have.text', '1')
   })
 })
