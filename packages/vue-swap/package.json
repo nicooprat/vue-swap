@@ -1,7 +1,7 @@
 {
   "name": "vue-swap",
   "description": "Vue functional component to horizontally swap between items",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "Nico Prat",
     "email": "nicooprat@gmail.com"
