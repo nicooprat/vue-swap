@@ -40,3 +40,45 @@ export default {
 ```
 
 <GettingStartedDemo />
+
+## Tabs demo
+
+Swap left or right according to any value. You can also easily customize transitions.
+
+```vue
+<template>
+  <Swap :direction="direction">
+    <div :key="tab" />
+  </Swap>
+</template>
+
+<script>
+import { Swap } from 'vue-swap'
+
+export default {
+  components: {
+    Swap,
+  },
+  data() {
+    return {
+      tab: 1,
+      direction: 'right',
+    }
+  },
+  watch: {
+    tab(newTab, oldTab) {
+      this.direction = newTab > oldTab ? 'left' : 'right'
+    }
+  },
+}
+</script>
+
+<style scoped>
+/deep/ .swap-left-leave-to { ... }
+/deep/ .swap-left-enter-to { ... }
+/deep/ .swap-right-leave-to { ... }
+/deep/ .swap-right-enter-to { ... }
+</style>
+```
+
+<TabDemo />

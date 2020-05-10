@@ -43,6 +43,9 @@ section {
   margin-bottom: 5vh;
   font-size: calc(1.5rem + 1.5vw);
   height: 12em;
+  border-radius: 0.15em;
+  overflow: hidden;
+  background-color: #F7FAFC;
 }
 
 article {
@@ -54,7 +57,8 @@ article {
   font-size: 1em;
   font-weight: bold;
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 0.15em;
+  margin: 1rem;
 }
 
 button {
