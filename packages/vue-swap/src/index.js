@@ -1,12 +1,12 @@
-import Columns from './Columns.vue'
+import Swap from './Swap.vue'
 
 export {
-  Columns,
+  Swap,
 }
 
 function registerComponents (Vue, prefix) {
-  Vue.component(`${prefix}columns`, Columns)
-  Vue.component(`${prefix}Columns`, Columns)
+  Vue.component(`${prefix}swap`, Swap)
+  Vue.component(`${prefix}Swap`, Swap)
 }
 
 const plugin = {

@@ -1,34 +1,43 @@
-<img src="./packages/docs/src/.vuepress/public/vue-columns.svg" alt="logo" width="128">
+<img src="./packages/docs/src/.vuepress/public/vue-swap.svg" alt="logo" width="128">
 
-# vue-columns
+# vue-swap
 
-Vue renderless functional component to dispatch children items in columns
+Vue minimalist component to horizontally swap between items
 
-[Documentation](https://vue-columns.netlify.app/)
+[Demo & docs](https://vue-swap.netlify.app/)
 
 ## Quick start
 
 ```vue
 <template>
-  <Columns :columns="3">
-    <div v-for="item in items" :key="item" v-text="item" />
-  </Columns>
+  <Swap :direction="direction">
+    <div :key="i" />
+  </Swap>
 </template>
 
 <script>
-import { Columns } from 'vue-columns'
+import { Swap } from 'vue-swap'
 
 export default {
   components: {
-    Columns,
-  },
-  data () {
-    return {
-      items: Array.from(Array(12)).map((v, i) => i),
-    }
+    Swap,
   },
 }
 </script>
+```
+
+## Installation
+
+Install the `vue-swap` package:
+
+```sh
+npm i vue-swap
+```
+
+Or
+
+```sh
+yarn add vue-swap
 ```
 
 ## Thanks & credits

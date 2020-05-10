@@ -1,7 +1,7 @@
 {
-  "name": "vue-columns",
-  "description": "Vue renderless functional component to dispatch children items in columns",
-  "version": "0.0.2",
+  "name": "vue-swap",
+  "description": "Vue minimalist component to horizontally swap between items",
+  "version": "0.0.1",
   "author": {
     "name": "Nico Prat",
     "email": "nicooprat@gmail.com"
@@ -10,12 +10,12 @@
     "vue",
     "vuejs",
     "plugin",
-    "columns"
+    "swap"
   ],
   "license": "MIT",
-  "main": "dist/vue-columns.umd.js",
-  "module": "dist/vue-columns.esm.js",
-  "unpkg": "dist/vue-columns.min.js",
+  "main": "dist/vue-swap.umd.js",
+  "module": "dist/vue-swap.esm.js",
+  "unpkg": "dist/vue-swap.min.js",
   "scripts": {
     "build": "NODE_ENV=production npm run build:browser && npm run build:es && npm run build:umd",
     "build:browser": "rollup --config build/rollup.config.browser.js",
@@ -28,13 +28,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicooprat/vue-columns.git",
-    "directory": "packages/vue-columns"
+    "url": "git+https://github.com/nicooprat/vue-swap.git",
+    "directory": "packages/vue-swap"
   },
   "bugs": {
-    "url": "https://github.com/nicooprat/vue-columns/issues"
+    "url": "https://github.com/nicooprat/vue-swap/issues"
   },
-  "homepage": "https://github.com/nicooprat/vue-columns#readme",
+  "homepage": "https://github.com/nicooprat/vue-swap#readme",
   "publishConfig": {
     "access": "public"
   },
